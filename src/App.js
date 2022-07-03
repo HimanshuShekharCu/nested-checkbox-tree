@@ -3,19 +3,19 @@ import "antd/dist/antd.css";
 import "./index.css";
 import { data } from "./data";
 import { Tree } from "antd";
+import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
 
 function createTree(list) {
-  var map = {},
+  let map = {},
     node,
-    roots = [],
-    i;
+    roots = [];
 
-  for (i = 0; i < list.length; i += 1) {
+  for (let i = 0; i < list.length; i += 1) {
     map[list[i].title] = i; // initialize the map
     list[i].children = []; // initialize the children
   }
 
-  for (i = 0; i < list.length; i += 1) {
+  for (let i = 0; i < list.length; i += 1) {
     node = list[i];
     if (node.parentId !== null) {
       // if you have dangling branches check that map[node.key] exists
@@ -35,7 +35,14 @@ const App = () => {
 
   return (
     <div className="treeWrapper">
-      <Tree checkable showLine treeData={treeData} />
+      <Tree
+        switcherIcon={({ expanded }) => (
+          <>{expanded ? <MinusCircleOutlined /> : <PlusCircleOutlined />}</>
+        )}
+        checkable
+        showLine={{ showLeafIcon: false }}
+        treeData={treeData}
+      />
     </div>
   );
 };
