@@ -52,3 +52,70 @@ export const data = [
     parentId: "0-1",
   },
 ];
+
+export const exampleData = [
+  {
+    title: "Sports",
+    parentId: null,
+  },
+  {
+    title: "Soccer",
+    parentId: null,
+  },
+  {
+    title: "Rugby",
+    parentId: null,
+  },
+  {
+    title: "IPL",
+    parentId: "Sports",
+  },
+  {
+    title: "EPL",
+    parentId: "Sports",
+  },
+  {
+    title: "NBA",
+    parentId: "Sports",
+  },
+  {
+    title: "Mumbai Indians",
+    parentId: "IPL",
+  },
+  {
+    title: "Rajasthan Royals",
+    parentId: "IPL",
+  },
+  {
+    title: "Gujarat Titans",
+    parentId: "IPL",
+  },
+  {
+    title: "Arsenal",
+    parentId: "EPL",
+  },
+  {
+    title: "Chelsea",
+    parentId: "EPL",
+  },
+  {
+    title: "Manchester United",
+    parentId: "EPL",
+  },
+  {
+    title: "SPL",
+    parentId: "Soccer",
+  },
+  {
+    title: "Arsen",
+    parentId: "SPL",
+  },
+  {
+    title: "Chel",
+    parentId: "SPL",
+  },
+  {
+    title: "Manchester",
+    parentId: "SPL",
+  },
+];
