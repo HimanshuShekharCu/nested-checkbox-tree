@@ -1,6 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./index.css";
+// eslint-disable-next-line
 import { data, exampleData } from "./data";
 import { Tree } from "antd";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
