@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Nested Checkbox
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A setup to create a nested checkbox from a given flat array of objects with title and parentId pairs.,
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+The setup can be utilized in your preferred way. You can either use the direct link for the file for downloading or clone it with git repo link.
 
-### `npm start`
+## Utility function "createTree"
+You can use utility function of createNode which accepts array of object in following way (inputParameterArray) as an argumnet and return nested tree of nodes that can be used to feed any library creating UI for a tree of nodes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+const inputParameterArray = [
+  {
+    title: "0-0",
+    parentId: null,
+  },
+  {
+    title: "0-1",
+    parentId: null,
+  },
+   {
+    title: "0-0-1",
+    parentId: 0-0,
+  }
+ ]
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+function createTree(list) {
+  let map = {},
+    node,
+    roots = [];
 
-### `npm test`
+  for (let i = 0; i < list.length; i += 1) {
+    map[list[i].title] = i; // initialize the map
+    list[i].children = []; // initialize the children
+  }
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  for (let i = 0; i < list.length; i += 1) {
+    node = list[i];
+    if (node.parentId !== null) {
+      // if you have dangling branches check that map[node.key] exists
+      list[map[node.parentId]].children.push(node);
+    } else {
+      roots.push(node);
+    }
+  }
 
-### `npm run build`
+  return roots;
+}
+const treeData = createTree(
+    inputParameterArray.map((item) => ({ ...item, key: item.title }))
+  );
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Using the output of utility function
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You can feed this returned data array to any checkbox tree maker library to create nested checkbox UI.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+    <Tree
+        switcherIcon={({ expanded }) => (
+          <>{expanded ? <MinusCircleOutlined /> : <PlusCircleOutlined />}</>
+        )}
+        checkable
+        showLine={{ showLeafIcon: false }}
+        treeData={treeData}
+      />
+ ```
+ 
+## Credits
 
-### `npm run eject`
+- [Himanshu Shekhar](https://github.com/HimanshuShekharCu)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contributing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please feel free to contribute by submitting a pull request to enhance the functionalities. I will appreciate that a lot. Also please add your name to the credits.
