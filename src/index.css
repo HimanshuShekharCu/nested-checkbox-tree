@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.treeWrapper{
+  border-width: 5px;
+  border-style: outset;
+  padding: 5px;
+}
+#root{
+  position: absolute;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* align-content: center; */
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
