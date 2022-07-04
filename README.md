@@ -9,7 +9,7 @@ The setup can be utilized in your preferred way. You can either use the direct l
 ## Utility function "createTree"
 You can use utility function of createNode which accepts array of object in following way (inputParameterArray) as an argumnet and return nested tree of nodes that can be used to feed any library creating UI for a tree of nodes.
 
-```
+```js
 const inputArray = [
   {
     title: "0-0",
@@ -56,7 +56,7 @@ const treeData = createTree(inputArray)
 
 You can feed this returned data array to any checkbox tree maker library to create nested checkbox UI.
 
-```
+```jsx
     <Tree
         switcherIcon={({ expanded }) => (
           <>{expanded ? <MinusCircleOutlined /> : <PlusCircleOutlined />}</>
@@ -69,28 +69,31 @@ You can feed this returned data array to any checkbox tree maker library to crea
         treeData={treeData}
       />
  ```
- ## handlers 
+ ## Handlers 
  
- onCheck -:
+ **onCheck**
  
  Callback function for when the onCheck event occurs.
  
+ ```js
  function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys})
+ ```
  
- 
- onExpand -:
+ **onExpand**
  
  Callback function for when a treeNode is expanded or collapsed. 
  
+ ```js
  function(expandedKeys, {expanded: bool, node})
+ ```
  
- 
- onSelect-:
+ **onSelect**
  
  Callback function for when the user clicks a treeNode.
  
+ ```js
  function(selectedKeys, e:{selected: bool, selectedNodes, node, event})
- 
+ ```
  
  ## Results
  
