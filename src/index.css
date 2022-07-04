@@ -11,47 +11,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.treeWrapper {
-  border-width: 11px;
-  border-style: solid;
-  padding: 5px;
-  border-color:#f5f5f5 ;
-}
-
-.treeWrapper .ant-tree-checkbox:hover::after,
-.treeWrapper .ant-tree-checkbox-inner:hover {
-  border-color: #d9d9d9 !important;
-}
-.treeWrapper .ant-tree-node-content-wrapper .ant-tree-node-content-wrapper-open span{
- font-weight: bolder;
-}
-.treeWrapper .ant-tree-checkbox-checked span,
-.treeWrapper .ant-tree-checkbox-indeterminate span {
-  background: white;
-  border-color: #d9d9d9 !important;
-}
-.treeWrapper .ant-tree-node-content-wrapper-open span, 
-.ant-tree-node-content-wrapper-close span{
-  font-weight: bolder;
-}
-.treeWrapper .ant-tree-switcher{
-  color: #42c3a9;
-}
-
-.treeWrapper .ant-tree-checkbox-checked span::after,
-.treeWrapper .ant-tree-checkbox-indeterminate span::after {
-  background-color: #42c3a9;
-  border-radius: 50%;
-  border: none;
-  width: 8px;
-  transform: rotate(0) scale(1) translate(0%, -50%);
-}
-
-.treeWrapper .ant-tree-checkbox-indeterminate span::after {
-  transform: rotate(0) scale(1) translate(-50%, -50%);
-}
-
 #root {
   position: absolute;
   transform: translate(-50%, -50%);
