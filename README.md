@@ -62,10 +62,18 @@ You can feed this returned data array to any checkbox tree maker library to crea
           <>{expanded ? <MinusCircleOutlined /> : <PlusCircleOutlined />}</>
         )}
         checkable
+        onSelect={onSelect}
+        onExpand={onExpand}
+        onCheck={onCheck}
         showLine={{ showLeafIcon: false }}
         treeData={treeData}
       />
  ```
+ ## handlers 
+ 
+ onCheck:	Callback function for when the onCheck event occurs.: function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys})
+ onExpand: Callback function for when a treeNode is expanded or collapsed. : function(expandedKeys, {expanded: bool, node})
+ onSelect:	Callback function for when the user clicks a treeNode : function(selectedKeys, e:{selected: bool, selectedNodes, node, event})
  
  ## Results
  
