@@ -10,7 +10,7 @@ The setup can be utilized in your preferred way. You can either use the direct l
 You can use utility function of createNode which accepts array of object in following way (inputParameterArray) as an argumnet and return nested tree of nodes that can be used to feed any library creating UI for a tree of nodes.
 
 ```
-const inputParameterArray = [
+const inputArray = [
   {
     title: "0-0",
     parentId: null,
@@ -25,11 +25,11 @@ const inputParameterArray = [
   }
  ]
 
-function createTree(list) {
+function createTree(data) {
   let map = {},
     node,
     roots = [];
-
+  const list = data.map((item) => ({ ...item, key: item.title }));
   for (let i = 0; i < list.length; i += 1) {
     map[list[i].title] = i; // initialize the map
     list[i].children = []; // initialize the children
@@ -47,9 +47,9 @@ function createTree(list) {
 
   return roots;
 }
-const treeData = createTree(
-    inputParameterArray.map((item) => ({ ...item, key: item.title }))
-  );
+
+const treeData = createTree(inputArray)
+
 ```
 
 ## Using the output of utility function
