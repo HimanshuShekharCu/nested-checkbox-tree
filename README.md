@@ -67,6 +67,12 @@ You can feed this returned data array to any checkbox tree maker library to crea
       />
  ```
  
+ ## Results
+ 
+ <img width="413" alt="image" src="https://user-images.githubusercontent.com/24574845/177083971-3ecdb5f6-e41f-4d9b-badc-a1230bb32a89.png">
+<img width="279" alt="image" src="https://user-images.githubusercontent.com/24574845/177084080-45ca1b6e-4b50-4494-9489-1e0849fc9bd6.png">
+
+ 
 ## Credits
 
 - [Himanshu Shekhar](https://github.com/HimanshuShekharCu)
